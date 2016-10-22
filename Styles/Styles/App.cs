@@ -14,7 +14,8 @@ namespace Styles
             // The root page of your application
 
 
-            MainPage = new BasicStylePage();
+            //MainPage = new BasicStylePage();
+            MainPage = new StyleCodePage();
         }
 
         protected override void OnStart()

@@ -4,13 +4,34 @@
              x:Class="Styles.BasicStylePage">
   <ContentPage.Resources>
     <ResourceDictionary>
+
+      <Color x:Key="btnTextColor" x:FactoryMethod="FromHsla">
+        <x:Arguments>
+          <x:Double>0.83</x:Double>
+          <x:Double>1</x:Double>
+          <x:Double>0.75</x:Double>
+          <x:Double>1</x:Double>
+        </x:Arguments>
+      </Color>
+
       <!--Because the Style is an object in a ResourceDictionary, you’ll need an x:Key attribute to give it a descriptive dictionary key. 
       You must also set the TargetType property. This is the type of the visual element that the style is designed for, which in this case is Button.-->
       <Style x:Key="buttonStyle" TargetType="Button">
+        <!--Style also defines another important get-only property named Setters of type IList<Setter>, which is a collection of Setter objects. 
+        Each Setter is responsible for defining a property setting in the style. The Setter class defines just two properties:-->
+
+        <!--Properties set in the Style must be backed by bindable properties! 
+        But when you set the Property property in XAML, 
+        don’t use the entire fully qualified bindable property name.-->
+
+        <!--The XAML parser uses the familiar TypeConverter classes when parsing the Value settings of these Setter instances, 
+        so you can use the same property settings that you use normally.
+Setters is the content property of Style, so you don’t need the Style.Setters tags to add Setter objects to the Style:-->
         <Setter Property="HorizontalOptions" Value="Center" />
         <Setter Property="VerticalOptions" Value="CenterAndExpand" />
         <Setter Property="BorderWidth" Value="3" />
         <Setter Property="TextColor" Value="Red" />
+        <!--<Setter Property="TextColor" Value="{StaticResource btnTextColor}" />--><!--Suppose you’d like to define a Setter for the TextColor using the Color.FromHsla static method-->
         <Setter Property="FontSize" Value="Large" />
         <Setter Property="BackgroundColor">
           <Setter.Value>
