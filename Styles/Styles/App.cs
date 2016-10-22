@@ -15,7 +15,8 @@ namespace Styles
 
 
             //MainPage = new BasicStylePage();
-            MainPage = new StyleCodePage();
+            //MainPage = new StyleCodePage();
+            MainPage = new StyleInheritancePage();
         }
 
         protected override void OnStart()
